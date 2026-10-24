@@ -9,11 +9,11 @@ export const ProgressGauges: React.FC = () => {
   const shiftHours = activeShift.total_shift_hours || 9;
   const halfHours = activeShift.half_day_hours || 4;
 
-  const halfDayLabel = `Half day progress (${halfHours}h work)`;
+  const halfDayLabel = `Half Day Goal (${halfHours}h)`;
   const shiftLabel = isOff
-    ? `Full day progress (8h + break)`
-    : `Full shift progress (${shiftHours}h)`;
-  const workLabel = isOff ? `Work progress (8h goal)` : `Pure work progress`;
+    ? `Full Day Goal (8h + break)`
+    : `Full Shift Goal (${shiftHours}h)`;
+  const workLabel = isOff ? `Pure Work (8h)` : `Pure Work Goal`;
 
   const isOverBreak = metrics.extraBreakMin > 0 && !isOff;
 

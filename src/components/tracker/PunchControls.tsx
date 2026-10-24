@@ -95,18 +95,7 @@ export const PunchControls: React.FC = () => {
       </div>
 
       {/* Shift Selector Strip (Touch Friendly on Mobile) */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          background: 'var(--bg-card)',
-          border: '1px solid var(--border-card)',
-          borderRadius: '10px',
-          padding: '8px 12px',
-          marginBottom: '12px',
-        }}
-      >
+      <div className="shift-selector-strip">
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
           <Clock size={14} color="var(--primary)" />
           <span>Active Shift:</span>
@@ -114,17 +103,7 @@ export const PunchControls: React.FC = () => {
         <select
           value={activeShift.id}
           onChange={(e) => changeActiveShift(e.target.value)}
-          style={{
-            background: 'var(--bg-input)',
-            border: '1px solid var(--border-subtle)',
-            color: 'var(--primary)',
-            fontWeight: 700,
-            fontSize: '0.8rem',
-            borderRadius: '6px',
-            padding: '4px 8px',
-            cursor: 'pointer',
-            outline: 'none',
-          }}
+          className="shift-select-input"
           title="Change active shift rules"
         >
           {shifts.map((s) => (
@@ -142,7 +121,7 @@ export const PunchControls: React.FC = () => {
           <div className="field-header">
             <span className="field-label">
               <Briefcase size={13} color="var(--primary)" />
-              Punch in (HH:MM)
+              <span>Punch In</span>
             </span>
             <button
               type="button"
@@ -157,7 +136,7 @@ export const PunchControls: React.FC = () => {
             <input
               ref={inHHRef}
               type="text"
-              placeholder="00"
+              placeholder="09"
               maxLength={2}
               inputMode="numeric"
               pattern="[0-9]*"
@@ -168,11 +147,11 @@ export const PunchControls: React.FC = () => {
               className="digit-input"
               aria-label="Punch In Hour"
             />
-            <span>:</span>
+            <span className="colon-sep">:</span>
             <input
               ref={inMMRef}
               type="text"
-              placeholder="00"
+              placeholder="30"
               maxLength={2}
               inputMode="numeric"
               pattern="[0-9]*"
@@ -191,7 +170,7 @@ export const PunchControls: React.FC = () => {
           <div className="field-header">
             <span className="field-label">
               <Coffee size={13} color="var(--warning)" />
-              Break taken (HH:MM)
+              <span>Break Taken</span>
             </span>
             <button
               type="button"

@@ -119,10 +119,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMaster, activeTab, setActi
             <Download size={15} />
           </button>
 
-          {/* Master Setup Action Button */}
+          {/* Master Setup Action Button - Desktop Only (Mobile has dedicated Bottom Nav item) */}
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary hide-on-mobile"
             onClick={onOpenMaster}
             style={{
               padding: '7px 12px',
@@ -132,7 +132,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMaster, activeTab, setActi
             title="Open Master Setup & Timings"
           >
             <Sliders size={14} />
-            <span className="hide-on-mobile">Master Setup</span>
+            <span>Master Setup</span>
           </button>
         </div>
       </div>
