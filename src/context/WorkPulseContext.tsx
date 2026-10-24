@@ -81,7 +81,7 @@ const WorkPulseContext = createContext<WorkPulseContextType | undefined>(undefin
 export const WorkPulseProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isDbReady, setIsDbReady] = useState(false);
   const [dbError, setDbError] = useState<string | null>(null);
-  const [currentTime, setCurrentTime] = useState<Date>(new Date());
+  const [currentTime, setCurrentTime] = useState<Date>(() => new Date());
   const [dayType, setDayTypeState] = useState<DayType>('work');
   const [shifts, setShifts] = useState<ShiftMaster[]>([defaultShift]);
   const [activeShift, setActiveShift] = useState<ShiftMaster>(defaultShift);
