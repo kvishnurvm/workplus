@@ -52,7 +52,7 @@
   --min-touch-target: 44px;
 }
 
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -664,6 +664,9 @@ body {
 /* Quick Break Chips Section */
 .quick-break-section {
   margin-bottom: 12px;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 @media (min-width: 640px) {
   .quick-break-section {
@@ -683,6 +686,9 @@ body {
   display: flex;
   gap: 6px;
   overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   padding: 2px 2px 6px 2px;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -938,20 +944,29 @@ body {
 /* Desktop Split Layout (Adaptive) */
 .desktop-dashboard-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+}
+
+.dashboard-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
 }
 
 @media (min-width: 900px) {
   .desktop-dashboard-grid {
-    grid-template-columns: 460px 1fr;
+    grid-template-columns: 460px minmax(0, 1fr);
     gap: 24px;
     align-items: start;
   }
 }
 @media (min-width: 1200px) {
   .desktop-dashboard-grid {
-    grid-template-columns: 480px 1fr;
+    grid-template-columns: 480px minmax(0, 1fr);
     gap: 28px;
   }
 }

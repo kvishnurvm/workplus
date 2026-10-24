@@ -83,7 +83,7 @@ export const TrackerView: React.FC = () => {
       {/* Responsive Grid: Single Column on Mobile, 2 Columns on Desktop */}
       <div className="desktop-dashboard-grid">
         {/* Left Column (Primary Punch & Hero Prediction) */}
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div className="dashboard-col">
           {/* Hero Punch-Out Prediction Card */}
           <HeroPrediction />
 
@@ -95,7 +95,7 @@ export const TrackerView: React.FC = () => {
         </div>
 
         {/* Right Column (Progress Gauges & Metrics Grid) */}
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div className="dashboard-col">
           {/* Progress Bars */}
           <ProgressGauges />
 
